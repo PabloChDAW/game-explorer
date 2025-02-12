@@ -1,8 +1,8 @@
-
+import Carrusel from "../components/Carrusel"
 
 const Principal = () => {
   return (
-    <div>Principal</div>
+    <Carrusel />
   )
 }
 

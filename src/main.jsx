@@ -1,7 +1,6 @@
 // Importa los estilos de TailwindCSS
 import './index.css'
 
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -49,7 +48,5 @@ const router = createBrowserRouter([
 
 // RouterProvider permite acceder a más de una página
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <RouterProvider router={router} />
 )
