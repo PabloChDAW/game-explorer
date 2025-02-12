@@ -1,8 +1,13 @@
-
+import { Footer } from "flowbite-react";
 
 const AppFooter = () => {
   return (
-    <div>AppFooter</div>
+    <Footer container>
+      <div className="w-full text-center">
+        <Footer.Divider />
+        <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+      </div>
+    </Footer>
   )
 }
 
