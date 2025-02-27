@@ -1,14 +1,46 @@
-import { Carousel } from "flowbite-react";
+"use client"
 
-const Carrusel = () => {
+import { useState, useEffect } from "react"
+import { Carousel } from "flowbite-react"
+import { fetchPopularGames } from "../services/carrusel"
+
+function Carrusel() {
+  const [games, setGames] = useState([])
+
+  useEffect(() => {
+    const loadGames = async () => {
+      try {
+        const popularGames = await fetchPopularGames()
+        console.log(popularGames); // Verifica la estructura de los datos
+        setGames(popularGames)
+      } catch (err) {
+        console.error("Error al ejecutar fetchPopularGames():", err)
+      }
+    }
+
+    loadGames()
+  }, [])
+
   return (
-    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+    <div className="h-80 sm:h-96 xl:h-[500px] 2xl:h-[600px]">
       <Carousel>
-        <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
+        {/* Mapea el objeto `games` capturado por fetchPopularGames() */}
+        {games.map((game) => (
+          <div
+            key={game.id}
+            className="relative flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700"
+          >
+            <img
+              src={game.background_image}
+              alt={game.name}
+              className="object-cover w-full h-full"
+            />
+
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
+              <h2 className="text-lg font-bold">{game.name}</h2>
+            </div>
+          </div>
+        ))}
       </Carousel>
     </div>
   )
