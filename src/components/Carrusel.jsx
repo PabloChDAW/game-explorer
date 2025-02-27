@@ -22,7 +22,7 @@ function Carrusel() {
   }, [])
 
   return (
-    <div className="h-80 sm:h-96 xl:h-[500px] 2xl:h-[600px]">
+    <div className="h-auto sm:h-[500px] xl:h-[540px] 2xl:h-[600px]">
       <Carousel>
         {/* Mapea el objeto `games` capturado por fetchPopularGames() */}
         {games.map((game) => (
