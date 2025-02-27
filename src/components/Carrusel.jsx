@@ -8,17 +8,17 @@ function Carrusel() {
   const [games, setGames] = useState([])
 
   useEffect(() => {
-    const loadGames = async () => {
+    const loadPopularGames = async () => {
       try {
         const popularGames = await fetchPopularGames()
-        console.log(popularGames); // Verifica la estructura de los datos
+        console.log(popularGames) // Muestra los datos recibidos en consola
         setGames(popularGames)
       } catch (err) {
-        console.error("Error al ejecutar fetchPopularGames():", err)
+        console.error("Error al ejecutar fetchPopularGames(): ", err)
       }
     }
 
-    loadGames()
+    loadPopularGames()
   }, [])
 
   return (
