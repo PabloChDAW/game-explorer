@@ -30,16 +30,6 @@ function Promo() {
                 </dt>
                 <dd className="mt-2 text-base/7 text-gray-600">Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.</dd>
               </div>
-
-              <div className="relative pl-16">
-                <dt className="text-base/7 font-semibold text-gray-900">
-                  <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    {/* Insertar icono */}
-                  </div>
-                  Simple queues
-                </dt>
-                <dd className="mt-2 text-base/7 text-gray-600">Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.</dd>
-              </div>
             </dl>
           </div>
         </div>

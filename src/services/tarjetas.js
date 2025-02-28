@@ -16,7 +16,7 @@ export const fetchAllGames = async () => {
     const data = await response.json()
     return data.results
   } catch (error) {
-    console.error("Ocurrió un error al hacer fetch:", error)
+    console.error("Ocurrió un error al hacer fetch: ", error)
     throw error // Propaga el error para manejarlo en otro lugar si es necesario
   }
 }

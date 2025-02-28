@@ -24,6 +24,7 @@ const Buscador = () => {
         onChange={handleSearchChange}
         className="border rounded p-2 mb-4 w-full"
       />
+      
       <Tarjeta
         searchTerm={searchTerm}
         onGameClick={handleGameClick}
