@@ -5,7 +5,7 @@ import { Link } from "react-router" // Para que los enlaces funcionen con React 
 
 const AppNavbar = () => {
   return (
-    <Navbar fluid rounded>
+    <Navbar fluid rounded className="bg-gray-200">
       <Navbar.Brand>
         <img
           width="48"
