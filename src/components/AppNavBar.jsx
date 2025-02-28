@@ -6,7 +6,7 @@ import { Link } from "react-router" // Para que los enlaces funcionen con React 
 const AppNavbar = () => {
   return (
     <Navbar fluid rounded>
-      <Navbar.Brand href="https://flowbite-react.com"> {/* TODO: Cambiar la URL por la definitiva */}
+      <Navbar.Brand>
         <img
           width="48"
           height="48"
@@ -19,11 +19,11 @@ const AppNavbar = () => {
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Link to="/" className="navbar-link">
-          <Navbar.Link active={window.location.pathname === '/'}>Principal</Navbar.Link>
+          <span className="block py-2 pl-3 pr-4 md:p-0">Principal</span>
         </Link>
 
         <Link to="/buscador" className="navbar-link">
-          <Navbar.Link active={window.location.pathname === '/buscador'}>Buscador</Navbar.Link>
+          <span className="block py-2 pl-3 pr-4 md:p-0">Buscador</span>
         </Link>
       </Navbar.Collapse>
     </Navbar>
