@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Card } from "flowbite-react"
-import { fetchAllGames } from "../services/tarjetas"
+import { fetchAllGames } from "../services/peticiones"
 
 // eslint-disable-next-line react/prop-types
 function Tarjeta({ searchTerm, onGameClick }) {

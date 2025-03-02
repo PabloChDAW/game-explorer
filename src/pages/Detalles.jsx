@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import { fetchGameDetails } from "../services/detalles";
+import { fetchGameDetails } from "../services/peticiones";
 
 // Esta función es importante y sirve como ejemplo de uso para devolver una propiedad
 // eslint-disable-next-line react-refresh/only-export-components
