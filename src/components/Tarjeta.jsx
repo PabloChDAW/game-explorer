@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Card } from "flowbite-react";
+import { Card } from "flowbite-react"
 
-// eslint-disable-next-line react/prop-types
 function Tarjeta({ games, onGameClick }) {
   return (
     <div className="flex flex-wrap justify-between">
@@ -25,7 +24,7 @@ function Tarjeta({ games, onGameClick }) {
         </Card>
       ))}
     </div>
-  );
+  )
 }
 
-export default Tarjeta;
+export default Tarjeta

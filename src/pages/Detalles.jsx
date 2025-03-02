@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { useLoaderData, Link } from "react-router";
 import { fetchGameDetails } from "../services/peticiones";
 
 // Esta función es importante y sirve como ejemplo de uso para devolver una propiedad
@@ -36,9 +36,14 @@ const Detalles = () => {
 
       {/* Añado las Tags */}
       <h2 className="text-2xl font-bold mt-4">Tags</h2>
-      <ul className="list-disc list-inside mb-4">
-        {gameDetails.tags.map((tag) => (
-          <li key={tag.id} className="text-lg">{tag.name}</li>
+      {/* Hago que las Tags sean enlaces */}
+      <ul className="list-disc pl-5">
+        {gameDetails.tags.map(tag => (
+          <li key={tag.id}>
+            <Link to={`/juegos/tag/${tag.name}`} className="text-blue-500 hover:underline">
+              {tag.name}
+            </Link>
+          </li>
         ))}
       </ul>
 
