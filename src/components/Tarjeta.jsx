@@ -1,38 +1,13 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { Card } from "flowbite-react"
-import { fetchAllGames } from "../services/peticiones"
+/* eslint-disable react/prop-types */
+import { Card } from "flowbite-react";
 
 // eslint-disable-next-line react/prop-types
-function Tarjeta({ searchTerm, onGameClick }) {
-  const [games, setGames] = useState([])
-
-  useEffect(() => {
-    const loadAllGames = async () => {
-      try {
-        const allGames = await fetchAllGames()
-        console.log(allGames) // Muestra los datos recibidos en consola
-        setGames(allGames)
-      } catch (err) {
-        console.error("Error al ejecutar fetchAllGames(): ", err)
-      }
-    }
-    
-    loadAllGames()
-  }, [])
-
-  // Filtra los juegos según el término de búsqueda
-  const filteredGames = games.filter((game) => 
-    // eslint-disable-next-line react/prop-types
-    game.name.toLowerCase().includes(searchTerm.toLowerCase())
-  )
-
+function Tarjeta({ games, onGameClick }) {
   return (
     <div className="flex flex-wrap justify-between">
-      {/* Mapea el objeto `games` capturado por fetchAllGames() creando
+      {/* Mapea el objeto `games` capturado por la prop `games` creando
       una tarjeta para cada objeto `game` */}
-      {filteredGames.map((game) => (
+      {games.map((game) => (
         <Card
           key={game.id}
           className="max-w-sm m-2 cursor-pointer"
@@ -50,8 +25,7 @@ function Tarjeta({ searchTerm, onGameClick }) {
         </Card>
       ))}
     </div>
-    
-  )
+  );
 }
 
-export default Tarjeta
+export default Tarjeta;
