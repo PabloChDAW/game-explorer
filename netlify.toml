@@ -1,8 +1,5 @@
 [[redirects]]
-    from = "/"
+    from = ["/", "/buscador"]
     to = "/index.html"
-    status = 200
-    from = "/buscador"
-    to = "/index.html/buscador"
     status = 200
   
