@@ -1,10 +1,13 @@
 const API_KEY = "5a791238addd496797b981071612bdab"
 const BASE_URL = "https://api.rawg.io/api"
 
+// URL para visualizar la respuesta de la API:
+// https://api.rawg.io/api/games?key=5a791238addd496797b981071612bdab&ordering=-rating&page_size=10
+
 /**
  * Llama a la API solicitando los 10 juegos con valor `rating` más alto.
  * 
- * @returns array de objetos JSON
+ * @returns array de objetos JSON.
  */
 export const fetchPopularGames = async () => {
   try {
@@ -21,6 +24,12 @@ export const fetchPopularGames = async () => {
   }
 }
 
+/**
+ * Llama a la API solicitando los datos de un juego especificado por su id.
+ * 
+ * @param {*} id id del juego.
+ * @returns JSON con los datos del juego cuyo id se especifica como argumento.
+ */
 export const fetchGameDetails = async (id) => {
   try {
     const response = await fetch(`${BASE_URL}/games/${id}?key=${API_KEY}`)
@@ -37,9 +46,9 @@ export const fetchGameDetails = async (id) => {
 }
 
 /**
- * Llama a la API solicitando los 10 juegos con valor `rating` más alto.
+ * Llama a la API solicitando todos los juegos.
  * 
- * @returns array de objetos JSON
+ * @returns array de objetos JSON.
  */
 export const fetchAllGames = async () => {
   try {
