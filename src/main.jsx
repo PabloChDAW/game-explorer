@@ -13,6 +13,7 @@ import Principal from './pages/Principal.jsx'
 import Buscador from './pages/Buscador.jsx'
 import Detalles from './pages/Detalles.jsx'
 import JuegosPorTag from './pages/JuegosPorTag.jsx'
+import JuegosPorPublisher from './pages/JuegosPorPublisher.jsx'
 /* Importa la función loader cambiándole el nombre porque puede haber otros
 loader de otros componentes. Es un alias. */
 import { loader as gameDetailsLoader } from './pages/Detalles.jsx'
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     {
       path: "/juegos/tag/:tag", // Nueva ruta para juegos por tag
       element: <JuegosPorTag />,
+    },
+    {
+      path: "/juegos/publisher/:publisher", // Nueva ruta para juegos por publisher
+      element: <JuegosPorPublisher />,
     },]
   }
 ])
