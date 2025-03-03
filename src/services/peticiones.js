@@ -72,20 +72,26 @@ export const fetchAllGames = async () => {
  * @returns Juegos del publisher específico.
  */
 export const fetchGamesByPublisher = async (publisherName) => {
-  const response = await fetch(`https://api.rawg.io/api/publishers?key=5a791238addd496797b981071612bdab`)
+  const response = await fetch(`https://api.rawg.io/api/publishers?key=5a791238addd496797b981071612bdab`);
   if (!response.ok) {
     throw new Error(`Error al obtener publishers: ${response.status}`)
   }
   
   const data = await response.json()
-  console.log("Datos de publishers:", data) // Muestra los datos de publishers
   const publisherData = data.results.find(p => p.name.toLowerCase() === publisherName.toLowerCase())
 
   if (publisherData) {
-    console.log("Publisher encontrado:", publisherData) // Muestra el publisher encontrado
-    return publisherData.games // Devuelve los juegos del publisher específico
+    // Obtener detalles de cada juego
+    const gamesWithDetails = await Promise.all(publisherData.games.map(async (game) => {
+      const gameResponse = await fetch(`https://api.rawg.io/api/games/${game.id}?key=5a791238addd496797b981071612bdab`)
+      if (!gameResponse.ok) {
+        throw new Error(`Error al obtener detalles del juego: ${game.id}`)
+      }
+      return await gameResponse.json()
+    }))
+    
+    return gamesWithDetails // Devuelve los juegos con detalles
   } else {
-    console.log("Publisher no encontrado:", publisherName) // Muestra si no se encuentra el publisher
     return [] // Devuelve un array vacío si no se encuentra el publisher
   }
 }

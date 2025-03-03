@@ -33,10 +33,12 @@ const Detalles = () => {
       <h2 className="text-2xl font-bold mt-4">Publisher</h2>
       <p>
         {gameDetails.publishers.length > 0 ? gameDetails.publishers.map(publisher => (
-          <Link key={publisher.id} to={`/juegos/publisher/${publisher.name.trim()}`} className="text-blue-500 hover:underline">
-            {publisher.name}
-          </Link>
-        )).reduce((prev, curr) => [prev, ', ', curr]) : "No disponible"}
+          <li key={publisher.id}>
+            <Link to={`/juegos/publisher/${publisher.name.trim()}`} className="text-blue-500 hover:underline">
+              {publisher.name}
+            </Link>
+          </li>
+        )).reduce((prev, curr) => [prev, curr]) : "No disponible"}
       </p>
 
       <h2 className="text-2xl font-bold mt-4">Tags</h2>

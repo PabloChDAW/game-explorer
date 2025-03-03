@@ -15,6 +15,9 @@ const JuegosPorPublisher = () => {
       try {
         const gamesList = await fetchGamesByPublisher(publisher) // Llama a la función para obtener juegos por publisher
         console.log("Juegos obtenidos:", gamesList) // Muestra los juegos obtenidos
+        gamesList.forEach(game => {
+          console.log("Imagen del juego:", game.background_image); // Muestra la URL de la imagen
+        })
         setGames(gamesList) // Actualiza el estado con los juegos filtrados
       } catch (err) {
         console.error("Error al obtener juegos por publisher: ", err)
