@@ -12,6 +12,16 @@ export async function loader({ params }) {
 const Detalles = () => {
   const { gameDetails } = useLoaderData() // Obtiene los detalles del juego
 
+  // Mensajes de consola para depuración
+  console.log("Detalles del juego:", gameDetails) // Muestra todos los detalles del juego
+  console.log("Publishers:", gameDetails.publishers) // Muestra los publishers del juego
+  console.log("Tags:", gameDetails.tags) // Muestra los tags del juego
+
+  // Verificar el nombre del publisher
+  if (gameDetails.publishers.length > 0) {
+    console.log("Nombre del publisher en Detalles.jsx:", gameDetails.publishers[0].name)
+  }
+
   return (
     <div className="p-4">
       <h1 className="text-3xl font-bold">{gameDetails.name}</h1>
